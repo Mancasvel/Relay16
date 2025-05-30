@@ -1,0 +1,1 @@
+{"root":["./src/crypto.ts","./src/events.ts","./src/index.ts","./src/keys.ts","./src/relay.ts","./src/storage.ts","./src/types.ts","./src/utils.ts"],"version":"5.8.3"}

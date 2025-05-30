@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+    --primary: 210 20% 98%;
+    --primary-foreground: 220.9 39.3% 11%;
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 216 12.2% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+  background: linear-gradient(
+    90deg,
+    hsl(var(--muted)) 0%,
+    hsl(var(--background)) 50%,
+    hsl(var(--muted)) 100%
+  );
+  background-size: 468px 104px;
+}
+
+/* Note content styles */
+.note-content {
+  @apply text-sm leading-relaxed;
+}
+
+.note-content p {
+  @apply mb-2;
+}
+
+.note-content a {
+  @apply text-blue-500 hover:text-blue-600 underline;
+}
+
+.note-content .hashtag {
+  @apply text-blue-500 hover:text-blue-600 font-medium;
+}
+
+.note-content .mention {
+  @apply text-green-600 hover:text-green-700 font-medium;
+}
+
+/* Feed layout */
+.feed-container {
+  @apply max-w-2xl mx-auto space-y-4;
+}
+
+.note-card {
+  @apply bg-card border border-border rounded-lg p-4 hover:shadow-sm transition-shadow;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .feed-container {
+    @apply max-w-full mx-2;
+  }
+  
+  .note-card {
+    @apply p-3 mx-2;
+  }
+}
+
+/* Loading states */
+.loading-pulse {
+  @apply animate-pulse bg-muted rounded;
+}
+
+/* HeroUI theme overrides */
+.nextui-button {
+  @apply transition-all duration-200;
+}
+
+.nextui-card {
+  @apply border border-border;
+}
+
+/* Focus styles for accessibility */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+}
+
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.1) 0%,
+    hsl(var(--secondary) / 0.1) 100%
+  );
+}
+
+/* Text gradients */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--accent)) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+} 
